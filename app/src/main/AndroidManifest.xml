@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.saint.mylib">
+    <!-- 网络 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <!-- 存储 写/读 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- 用于读取手机WIFI当前的状态 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <!-- 手机识别码等 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!-- 相机 -->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!-- 拨号 -->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <!-- 录音-->
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <!--读取系统信息，包含系统版本等信息，用作统计-->
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <!--程序在手机屏幕关闭后后台进程仍然运行-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
 
     <application
             android:allowBackup="true"
