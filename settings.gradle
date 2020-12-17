@@ -1,1 +1,3 @@
-include ':app', ':utillib'
+include ':view'
+include ':app'
+rootProject.name = "View"
