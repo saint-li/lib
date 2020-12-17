@@ -72,5 +72,25 @@
         <attr name="scaleProgressColor" format="color"/>
         <attr name="scaleWidth" format="dimension"/>
     </declare-styleable>
+
+    <!--  圆角ImageView  开始 -->
+    <attr name="borderRadius" format="dimension" />
+    <attr name="type">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" />
+        <attr name="type" />
+    </declare-styleable>
+    <!--  圆角ImageView  结束 -->
+
+
+    <!-- 侧滑 -->
+    <declare-styleable name="SwipeMenuLayout">
+        <attr name="swipeEnable" format="boolean" />
+        <attr name="ios" format="boolean" />
+        <attr name="leftSwipe" format="boolean" />
+    </declare-styleable>
 </resources>
 
