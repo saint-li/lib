@@ -7,13 +7,13 @@ public class UtilConfig {
     private static boolean isDebug = false;
 
 
-    public static void init(Application app, String um_key, boolean debug) {
+    public static void init(Application app, boolean debug) {
         if (app == null) {
             throw new NullPointerException("初始化Util的application不可为null！");
         }
         if (!AppUtil.isMainProcess(app)) return;
         UtilConfig.app = app;
-//
+        isDebug = debug;
 
     }
 
