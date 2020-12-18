@@ -1,3 +1,4 @@
+include ':loading'
 include ':utils'
 include ':views'
 include ':app'

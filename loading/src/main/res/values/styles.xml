@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 骨架屏样式 -->
+    <style name="SkeletonView">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">22dp</item>
+        <item name="android:background">@drawable/shape_skeleton_bg</item>
+    </style>
+    <!-- 骨架屏样式 -->
+    <style name="SkeletonRound1View" parent="SkeletonView">
+        <item name="android:background">@drawable/shape_skeleton_bg_corners_12</item>
+    </style>
+    <!-- 骨架屏样式 -->
+    <style name="SkeletonCircleView" parent="SkeletonView">
+        <item name="android:background">@drawable/shape_skeleton_bg_circle</item>
+    </style>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loading_no_data">还没有数据哦~</string>
+    <string name="loading_failed">咦？网络君没跟上节奏呢～\n点击重试</string>
+</resources>

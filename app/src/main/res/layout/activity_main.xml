@@ -6,12 +6,19 @@
     android:layout_height="match_parent"
     android:background="@mipmap/bg">
 
+    <com.saint.lib.view.MyActionBar
+        android:id="@+id/my_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.saint.lib.view.RadarView
         android:layout_width="match_parent"
         android:layout_height="300dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/my_action_bar" />
 
     <com.saint.lib.view.MultistageProgressView
         android:id="@+id/progress_view"
@@ -19,7 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="350dp"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
