@@ -2,6 +2,7 @@ package com.saint.lib.demo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.saint.lib.util.AppUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -9,5 +10,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         progress_view.autoChange("999", 0f, 1f, 1000)
+        AppUtil.copyString("ssss")
     }
 }
