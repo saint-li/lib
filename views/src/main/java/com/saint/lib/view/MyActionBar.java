@@ -16,8 +16,6 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.core.content.ContextCompat;
 
-import com.saint.lib.util.AppUtil;
-
 
 /**
  * `Author: Saint
@@ -65,7 +63,7 @@ public class MyActionBar extends LinearLayout {
      */
     public void setStatusBarHeight() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) return;
-        int height = AppUtil.getStatusBarHeight();
+        int height = Convert.INSTANCE.getStatusBarHeight(getContext());
         ViewGroup.LayoutParams params = vStatusBar.getLayoutParams();
         params.height = height;
         vStatusBar.setLayoutParams(params);
@@ -128,7 +126,7 @@ public class MyActionBar extends LinearLayout {
 
     public void setTitleColor(@ColorRes int color) {
         if (tvTitle != null) {
-            tvTitle.setTextColor(AppUtil.getColor(color));
+            tvTitle.setTextColor(ContextCompat.getColor(getContext(), color));
         }
     }
 
@@ -147,7 +145,7 @@ public class MyActionBar extends LinearLayout {
      * @param resId 标题资源ID
      */
     public void setTitle(int resId) {
-        String strTitle = AppUtil.getString(resId);
+        String strTitle = getContext().getString(resId);
         setTitle(strTitle);
     }
 
@@ -210,7 +208,7 @@ public class MyActionBar extends LinearLayout {
 
     public void setRightTextColor(@ColorRes int colorRes) {
         if (tvRight != null) {
-            tvRight.setTextColor(AppUtil.getColor(colorRes));
+            tvRight.setTextColor(ContextCompat.getColor(getContext(), colorRes));
         }
     }
 
