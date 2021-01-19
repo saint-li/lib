@@ -107,11 +107,11 @@ public class RadarView extends View {
 
         //默认分数
         data = new ArrayList<>(count);
-        data.add(100.0);
-        data.add(80.0);
-        data.add(90.0);
-        data.add(70.0);
-        data.add(60.0);
+        data.add(0.0);
+        data.add(0.0);
+        data.add(0.0);
+        data.add(0.0);
+        data.add(0.0);
 
 
         //1度=1*PI/180   360度=2*PI   那么我们每旋转一次的角度为2*PI/内角个数

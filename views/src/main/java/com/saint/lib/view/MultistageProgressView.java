@@ -26,7 +26,7 @@ import java.util.List;
 public class MultistageProgressView extends View {
     private Paint backgroundPaint, progressPaint, dividePaint, textPaint;//背景和进度条画笔
     private Paint textProgressPaint;
-    private float progress = 10;//进度
+    private float progress = 0;//进度
     private float cusProgress;//实际进度
     //指示图标背景
     private Drawable mIcon;
@@ -37,7 +37,7 @@ public class MultistageProgressView extends View {
     //进度条长度 高度
     private float progressWidth, progressHeight;
     private List<String> title;
-    private int level;
+    private int level = -1;
 
     private String progressText = "0";
 
@@ -146,14 +146,16 @@ public class MultistageProgressView extends View {
      * @param canvas
      */
     private void drawIcon(Canvas canvas) {
-        if (cusProgress <= 0) return;
+        if (cusProgress < 0) return;
         if (cusProgress >= progressWidth) cusProgress = progressWidth;
         if (level == 2) {
             mIcon = ContextCompat.getDrawable(getContext(), R.mipmap.progress_purple_3);
         } else if (level == 1) {
             mIcon = ContextCompat.getDrawable(getContext(), R.mipmap.progress_purple_2);
-        } else {
+        } else if (level == 0) {
             mIcon = ContextCompat.getDrawable(getContext(), R.mipmap.progress_purple_1);
+        } else {
+            mIcon = ContextCompat.getDrawable(getContext(), R.mipmap.progress_purple_0);
         }
 
         float left = cusProgress;
@@ -171,17 +173,19 @@ public class MultistageProgressView extends View {
 
         //进度
         float temp;
-        if (level == 2) {
+        if (level == 2 || level < 0) {
             temp = 0;
         } else {
             temp = progressHeight / 2;
         }
-        if (level == 0) {
-            progressPaint.setColor(Color.parseColor("#FF84A0FF"));
+        if (level == 2) {
+            progressPaint.setColor(Color.parseColor("#FFFF7E7E"));
         } else if (level == 1) {
             progressPaint.setColor(Color.parseColor("#FFFFB97E"));
+        } else if (level == 0) {
+            progressPaint.setColor(Color.parseColor("#FF84A0FF"));
         } else {
-            progressPaint.setColor(Color.parseColor("#FFFF7E7E"));
+            progressPaint.setColor(Color.parseColor("#FFF5F5F5"));
         }
         canvas.drawLine(iconWidth / 2, iconHeight, cusProgress + iconWidth / 2 - temp, iconHeight, progressPaint);
 
