@@ -38,6 +38,7 @@ public class MultistageProgressView extends View {
     private float progressWidth, progressHeight;
     private List<String> title;
     private int level = -1;
+    private float temp;
 
     private String progressText = "0";
 
@@ -109,12 +110,12 @@ public class MultistageProgressView extends View {
 
     private void initConstant() {
         progressWidth = getWidth() - iconWidth;
+        temp = (int) (progressWidth / 100);
         divideX = progressWidth / title.size();
     }
 
     private void compute() {
-        cusProgress = progress * progressWidth;
-        Log.e("View", "progeress: " + progress + "cus: " + cusProgress + " divideX: " + divideX + " level: " + level);
+        cusProgress = progress * temp;
     }
 
     public float getProgress() {
@@ -146,19 +147,30 @@ public class MultistageProgressView extends View {
      * @param canvas
      */
     private void drawIcon(Canvas canvas) {
-        if (cusProgress < 0) return;
+//        if (cusProgress < 0) return;
         if (cusProgress >= progressWidth) cusProgress = progressWidth;
         if (level == 2) {
             mIcon = ContextCompat.getDrawable(getContext(), R.mipmap.progress_purple_3);
         } else if (level == 1) {
             mIcon = ContextCompat.getDrawable(getContext(), R.mipmap.progress_purple_2);
-        } else if (level == 0) {
+        } else if (level == 0 && progress > 0) {
             mIcon = ContextCompat.getDrawable(getContext(), R.mipmap.progress_purple_1);
         } else {
             mIcon = ContextCompat.getDrawable(getContext(), R.mipmap.progress_purple_0);
         }
-
-        float left = cusProgress;
+        float temp;
+        if (level < 0) {
+            temp = 0;
+        } else if (level == 0) {
+            temp = divideWidth;
+        } else if (level == 1) {
+            temp = divideWidth + iconWidth / 2;
+        } else if (level >= 2) {
+            temp = divideWidth * 2 + iconWidth / 2;
+        } else {
+            temp = divideWidth / 2;
+        }
+        float left = cusProgress + temp;
         mIcon.setBounds(new Rect((int) left, 0, (int) (left + iconWidth), (int) iconHeight));
         mIcon.draw(canvas);
 
@@ -172,22 +184,29 @@ public class MultistageProgressView extends View {
         canvas.drawLine(iconWidth / 2, iconHeight, getWidth() - iconWidth / 2, iconHeight, backgroundPaint);
 
         //进度
-        float temp;
-        if (level == 2 || level < 0) {
-            temp = 0;
+        float drawProgress;
+        if (level < 0) {
+            drawProgress = cusProgress;
+        } else if (level == 0) {
+            drawProgress = cusProgress + iconWidth / 2;
+        } else if (level == 1) {
+            drawProgress = cusProgress + divideWidth + iconWidth;
+        } else if (level == 2) {
+            drawProgress = cusProgress + divideWidth * 2 + iconWidth;
         } else {
-            temp = progressHeight / 2;
+            drawProgress = cusProgress + divideWidth / 2;
         }
+        if (progress >= 99.99f) drawProgress = progressWidth + iconWidth / 2;
         if (level == 2) {
             progressPaint.setColor(Color.parseColor("#FFFF7E7E"));
         } else if (level == 1) {
             progressPaint.setColor(Color.parseColor("#FFFFB97E"));
-        } else if (level == 0) {
+        } else if (level == 0 && progress > 0) {
             progressPaint.setColor(Color.parseColor("#FF84A0FF"));
         } else {
             progressPaint.setColor(Color.parseColor("#FFF5F5F5"));
         }
-        canvas.drawLine(iconWidth / 2, iconHeight, cusProgress + iconWidth / 2 - temp, iconHeight, progressPaint);
+        canvas.drawLine(iconWidth / 2, iconHeight, drawProgress, iconHeight, progressPaint);
 
     }
 
@@ -210,7 +229,7 @@ public class MultistageProgressView extends View {
         float fontHeight = fontMetrics.descent - fontMetrics.ascent;//标题高度
         for (int i = 0; i < title.size(); i++) {
             float left = iconWidth / 2 + tempWidth + divideX * i;
-            if (level == 0 && i == level) {
+            if (level == 0 && i == level && progress > 0) {
                 textPaint.setColor(Color.parseColor("#FF84A0FF"));
             } else if (level == 1 && i == level) {
                 textPaint.setColor(Color.parseColor("#FFFFB97E"));
@@ -228,12 +247,13 @@ public class MultistageProgressView extends View {
     public void autoChange(String progressText, float startProgress, float endProgress, long changeTime) {
         if (valueAnimator != null && valueAnimator.isRunning()) return;
         this.progressText = progressText;
-        level = (int) (endProgress * progressWidth / divideX);
-        if (endProgress > 0 && endProgress <= 0.333333) {
+        this.progress = endProgress;
+        level = (int) (endProgress * temp / divideX);
+        if (endProgress > 0 && endProgress <= 33.3333333333) {
             level = 0;
-        } else if (endProgress > 0 && endProgress <= 0.666666) {
+        } else if (endProgress > 33.3333333333 && endProgress <= 66.6666666666) {
             level = 1;
-        } else if (endProgress > 0 && endProgress <= 1f) {
+        } else if (endProgress > 66.6666666666 && endProgress <= 100) {
             level = 2;
         }
 //        setProgress((int) startProgress);
