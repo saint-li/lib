@@ -147,7 +147,7 @@ public class MultistageProgressView extends View {
      * @param canvas
      */
     private void drawIcon(Canvas canvas) {
-//        if (cusProgress < 0) return;
+        if (cusProgress <= 0) return;
         if (cusProgress >= progressWidth) cusProgress = progressWidth;
         if (level == 2) {
             mIcon = ContextCompat.getDrawable(getContext(), R.mipmap.progress_purple_3);
@@ -176,7 +176,6 @@ public class MultistageProgressView extends View {
 
         float textWidth = textProgressPaint.measureText(progressText);
         canvas.drawText(progressText, left + iconWidth / 2 - textWidth / 2, iconHeight / 2, textProgressPaint);
-
     }
 
     private void drawProgress(Canvas canvas) {
