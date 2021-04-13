@@ -246,7 +246,11 @@ public class MultistageProgressView extends View {
     public void autoChange(String progressText, float startProgress, float endProgress, long changeTime) {
         if (valueAnimator != null && valueAnimator.isRunning()) return;
         this.progressText = progressText;
-        this.progress = endProgress;
+        if (endProgress >= 100) {
+            this.progress = 100;
+        } else {
+            this.progress = endProgress;
+        }
         level = (int) (endProgress * temp / divideX);
         if (endProgress > 0 && endProgress <= 33.3333333333) {
             level = 0;
