@@ -49,28 +49,28 @@
     <declare-styleable name="MaxHeightRecyclerView">
         <attr name="maxHeight" format="dimension" />
     </declare-styleable>
-    
+
     //半月弧形进度条
     <declare-styleable name="SportProgressView">
-        <attr name="startColor" format="color"/>
-        <attr name="endColor" format="color"/>
-        <attr name="emptyColor" format="color"/>
-        <attr name="progressWidth" format="dimension"/>
-        <attr name="stepTextSize" format="dimension"/>
-        <attr name="padding" format="dimension"/>
-        <attr name="name" format="string"/>
+        <attr name="startColor" format="color" />
+        <attr name="endColor" format="color" />
+        <attr name="emptyColor" format="color" />
+        <attr name="progressWidth" format="dimension" />
+        <attr name="stepTextSize" format="dimension" />
+        <attr name="padding" format="dimension" />
+        <attr name="name" format="string" />
     </declare-styleable>
 
     //半月弧形温度进度条
     <declare-styleable name="TempProgressView">
-        <attr name="tempProgressWidth" format="dimension"/>
-        <attr name="progressBgColor" format="color"/>
-        <attr name="progressColor" format="color"/>
-        <attr name="tempColor" format="color"/>
-        <attr name="tempSize" format="dimension"/>
-        <attr name="scaleColor" format="color"/>
-        <attr name="scaleProgressColor" format="color"/>
-        <attr name="scaleWidth" format="dimension"/>
+        <attr name="tempProgressWidth" format="dimension" />
+        <attr name="progressBgColor" format="color" />
+        <attr name="progressColor" format="color" />
+        <attr name="tempColor" format="color" />
+        <attr name="tempSize" format="dimension" />
+        <attr name="scaleColor" format="color" />
+        <attr name="scaleProgressColor" format="color" />
+        <attr name="scaleWidth" format="dimension" />
     </declare-styleable>
 
     <!--  圆角ImageView  开始 -->
@@ -99,6 +99,14 @@
         <attr name="el_expanded" format="boolean" />
         <attr name="el_parallax" format="float" />
         <attr name="android:orientation" />
+    </declare-styleable>
+
+    <!--  高斯模糊  -->
+    <declare-styleable name="RealtimeBlurView">
+        <attr name="realtimeBlurRadius" format="float" />
+        <attr name="realtimeDownsampleFactor" format="float" />
+        <attr name="realtimeOverlayColor" format="color" />
+        <attr name="realtimeBlurRoundCornerRadius" format="dimension" />
     </declare-styleable>
 </resources>
 
