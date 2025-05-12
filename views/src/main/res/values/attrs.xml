@@ -101,6 +101,24 @@
         <attr name="android:orientation" />
     </declare-styleable>
 
+    <!-- 伸缩TextView -->
+    <declare-styleable name="ExpandTextView">
+        <attr format="reference|integer" name="etv_MaxLinesOnShrink"/>
+        <attr format="reference|string" name="etv_EllipsisHint"/>
+        <attr format="reference|string" name="etv_ToExpandHint"/>
+        <attr format="reference|string" name="etv_ToShrinkHint"/>
+        <attr format="reference|string" name="etv_GapToExpandHint"/>
+        <attr format="reference|string" name="etv_GapToShrinkHint"/>
+        <attr format="reference|boolean" name="etv_EnableToggle"/>
+        <attr format="reference|boolean" name="etv_ToExpandHintShow"/>
+        <attr format="reference|boolean" name="etv_ToShrinkHintShow"/>
+        <attr format="reference|color" name="etv_ToExpandHintColor"/>
+        <attr format="reference|color" name="etv_ToShrinkHintColor"/>
+        <attr format="reference|color" name="etv_ToExpandHintColorBgPressed"/>
+        <attr format="reference|color" name="etv_ToShrinkHintColorBgPressed"/>
+        <attr format="enum" name="etv_InitState"><enum name="shrink" value="0"/><enum name="expand" value="1"/></attr>
+    </declare-styleable>
+
     <!--  高斯模糊  -->
     <declare-styleable name="RealtimeBlurView">
         <attr name="realtimeBlurRadius" format="float" />
