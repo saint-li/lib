@@ -126,5 +126,15 @@
         <attr name="realtimeOverlayColor" format="color" />
         <attr name="realtimeBlurRoundCornerRadius" format="dimension" />
     </declare-styleable>
+
+    <!--  字母指示组件  -->
+    <declare-styleable name="LetterView">
+    <attr name="letterTextColor" format="color" />
+    <attr name="letterTextSize" format="dimension" />
+    <attr name="letterTextBackgroundColor" format="color" />
+    <attr name="letterEnableIndicator" format="boolean" />
+    <attr name="letterIndicatorColor" format="color" />
+    <attr name="letterIndicatorTextColor" format="color" />
+</declare-styleable>
 </resources>
 
